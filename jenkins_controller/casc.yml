@@ -9,6 +9,20 @@ jenkins:
       permissions:
         - "USER:Overall/Administer:panda"
   numExecutors: 0
+  nodes:
+  - permanent:
+      labelString: "agent"
+      launcher:
+        ssh:
+          credentialsId: "jenkins_agent"
+          host: "192.168.44.44"
+          port: 2222
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "agent"
+      remoteFS: "/home/jenkins/agent"
+      retentionStrategy: "always"
+
+
 
 credentials:
   system:
@@ -53,4 +67,6 @@ credentials:
                 o1epS4clbUspxKat9tbIIRccKa9GWXVDNLih8TslLCBoL/knJc+aqw==
                 -----END RSA PRIVATE KEY-----
           scope: GLOBAL
-
+unclassified:
+  location:
+    url: "http://192.168.44.44:8880/"
