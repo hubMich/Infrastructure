@@ -34,8 +34,6 @@ services:
     depends_on:
       - jenkins
     container_name: jenkins_agent
-    ports:
-      - "2222:22"
     build: jenkins_agent
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
